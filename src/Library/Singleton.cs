@@ -4,16 +4,14 @@ public abstract class Singleton<T> where T : new()
 {
 
     private static T instance;
-    
-    private Singleton() { }
         
-    public static T Instance
+    public static T Instance // devuelve el tipo T que se envió
     {
         get
         {
             if (instance == null)
             {
-                instance = new T();
+                instance = new T(); // Se crea una instancia de tipo T si no existe la instancia
             }
 
             return instance;
