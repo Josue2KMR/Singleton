@@ -3,12 +3,20 @@
 public abstract class Singleton<T> where T : new()
 {
 
-    private static T? _instance = new();
+    private static T instance;
     
     private Singleton() { }
         
     public static T Instance
     {
-        return _instance.value;
+        get
+        {
+            if (instance == null)
+            {
+                instance = new T();
+            }
+
+            return instance;
+        }
     }
 }
